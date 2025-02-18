@@ -4,7 +4,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Index of Reproductive/Foundational Science</title>
+            <title>Index of notes/Reproductive/Foundational Science</title>
             <style>
     body { 
         font-family: Arial, sans-serif; 
@@ -71,7 +71,7 @@
         background-color: #f8f9fa;
     }
     h1, h2 {
-        color: #FFE4C4;
+        color: #000000;
         margin: 20px 0;
     }
     .navigation { 
@@ -81,17 +81,97 @@
         border-radius: 4px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
+    
+    /* Enhanced search styles */
+    .search-container {
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .search-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #2F4F4F;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: #f5f5f5;
+        color: #2F4F4F;
+    }
+    .search-results {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+        max-height: 500px;
+        overflow-y: auto;
+    }
+    .result-item {
+        background-color: #f0f0f0;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .result-title {
+        color: #2F4F4F;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: block;
+    }
+    .result-metadata {
+        color: #666;
+        font-size: 0.8em;
+        margin: 5px 0;
+    }
+    .result-snippets {
+        margin-top: 10px;
+    }
+    .result-snippet {
+        color: #333;
+        margin: 5px 0;
+        font-size: 0.9em;
+        line-height: 1.4;
+        padding-left: 10px;
+        border-left: 2px solid #2F4F4F;
+    }
+    mark {
+        background-color: #FFEB7A;
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+    .no-results {
+        padding: 10px;
+        color: #666;
+        font-style: italic;
+    }
     </style>
         </head>
         <body>
-            <div class="breadcrumbs"><a href="../" * len(path_parts) + "index.html">Home</a> / <a href="../index.html">Reproductive</a> / <a href="index.html">Foundational Science</a></div>
-<h1> __ </h1>
-<h2> _ </h2>
+
+        <!-- Search Interface -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-input" 
+                placeholder="Search all notes..."
+                id="searchInput"
+            >
+            <ul class="search-results" id="searchResults"></ul>
+        </div>
+    
+            <div class="breadcrumbs"><a href="../" * len(path_parts) + "index.html">Home</a> / <a href="../../index.html">notes</a> / <a href="../index.html">Reproductive</a> / <a href="index.html">Foundational Science</a></div>
+<h1>  </h1>
+<h2> ____________________ </h2>
 <ul class="folder-list">
 <li class="folder"><a href="REPR Anatomy/index.html">REPR Anatomy/</a></li>
 <li class="folder"><a href="REPR Biochemistry/index.html">REPR Biochemistry/</a></li>
+<li class="folder"><a href="REPR Embryology/index.html">REPR Embryology/</a></li>
 <li class="folder"><a href="REPR Physiology/index.html">REPR Physiology/</a></li>
 </ul>
-        </body>
+
+            <script src="search-interface-ranked.js"></script>
+             
+        </body> 
         </html>
         
