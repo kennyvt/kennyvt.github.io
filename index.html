@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index of .</title>
-    <style>
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Index of .</title>
+            <style>
     body { 
         font-family: Arial, sans-serif; 
         margin: 20px;
@@ -13,9 +14,9 @@
         margin: 0 auto;
         padding: 20px;
         background-image: url('image.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
+  	background-repeat: no-repeat;
+ 	background-attachment: fixed;
+	background-size: cover;
     }
     .page { 
         margin-bottom: 30px;
@@ -69,8 +70,12 @@
     .folder:hover, .pdf:hover {
         background-color: #f8f9fa;
     }
-    h1, h2 {
-        color: #FFE4C4;
+    h1 {
+        color: #F8E4A0;
+        margin: 20px 0;
+    }
+	h2 {
+        color: #000000;
         margin: 20px 0;
     }
     .navigation { 
@@ -80,8 +85,8 @@
         border-radius: 4px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-
-    /* New styles for search functionality */
+    
+    /* Enhanced search styles */
     .search-container {
         padding: 15px;
         border-radius: 4px;
@@ -101,11 +106,13 @@
         list-style: none;
         padding: 0;
         margin-top: 15px;
+        max-height: 500px;
+        overflow-y: auto;
     }
     .result-item {
-        background-color: gray;
+        background-color: #f0f0f0;
         margin: 10px 0;
-        padding: 10px;
+        padding: 15px;
         border-radius: 4px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
@@ -113,107 +120,59 @@
         color: #2F4F4F;
         text-decoration: none;
         font-weight: bold;
+        font-size: 1.1em;
         display: block;
     }
+    .result-metadata {
+        color: #666;
+        font-size: 0.8em;
+        margin: 5px 0;
+    }
+    .result-snippets {
+        margin-top: 10px;
+    }
     .result-snippet {
-        color: #2F4F4F;
-        margin-top: 5px;
+        color: #333;
+        margin: 5px 0;
         font-size: 0.9em;
+        line-height: 1.4;
+        padding-left: 10px;
+        border-left: 2px solid #2F4F4F;
+    }
+    mark {
+        background-color: #FFEB7A;
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+    .no-results {
+        padding: 10px;
+        color: #666;
+        font-style: italic;
     }
     </style>
-</head>
-<body>
-    <div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="../index.html">.</a></div>
+        </head>
+        <body>
+
+        <!-- Search Interface -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-input" 
+                placeholder="Search all notes..."
+                id="searchInput"
+            >
+            <ul class="search-results" id="searchResults"></ul>
+        </div>
     
-    <!-- Search Interface -->
-    <div class="search-container">
-        <input 
-            type="text" 
-            class="search-input" 
-            placeholder="Search all notes..."
-            id="searchInput"
-        >
-        <ul class="search-results" id="searchResults"></ul>
-    </div>
+            <div class="breadcrumbs"><a href="../" * len(path_parts) + "index.html">Home</a> / <a href="../index.html">.</a></div>
+<h1> notes organized by organ system </h1>
+<h2> ______________________________________________________________________________ </h2>
+<ul class="folder-list">
+<li class="folder"><a href="notes/index.html">Organ Systems </a></li>
+</ul>
 
-    <h1>my notes</h1>
-    <h2>organized by organ system</h2>
-    
-    <ul class="folder-list">
-        <li class="folder"><a href="BIIC/index.html">BIIC/</a></li>
-        <li class="folder"><a href="Cardiovascular/index.html">Cardiovascular/</a></li>
-        <li class="folder"><a href="Endocrine/index.html">Endocrine/</a></li>
-        <li class="folder"><a href="Gastrointestinal/index.html">Gastrointestinal/</a></li>
-        <li class="folder"><a href="Integumentary/index.html">Integumentary/</a></li>
-        <li class="folder"><a href="Musculoskeletal System/index.html">Musculoskeletal System/</a></li>
-        <li class="folder"><a href="Neurosensory/index.html">Neurosensory/</a></li>
-        <li class="folder"><a href="Renal /index.html">Renal /</a></li>
-        <li class="folder"><a href="Reproductive/index.html">Reproductive/</a></li>
-        <li class="folder"><a href="Respiratory/index.html">Respiratory/</a></li>
-    </ul>
-
-    <script>
-    class PDFSearch {
-        constructor() {
-            this.searchIndex = null;
-            this.loadSearchIndex();
-        }
+            <script src="search-interface-ranked.js"></script>
+             
+        </body> 
+        </html>
         
-        async loadSearchIndex() {
-            try {
-                const response = await fetch('search-index.json');
-                this.searchIndex = await response.json();
-                console.log('Search index loaded successfully');
-            } catch (error) {
-                console.error('Error loading search index:', error);
-            }
-        }
-        
-        search(query) {
-            if (!this.searchIndex) return [];
-            
-            const normalizedQuery = query.toLowerCase();
-            return this.searchIndex.filter(item => {
-                const titleMatch = item.title && item.title.toLowerCase().includes(normalizedQuery);
-                const contentMatch = item.content && 
-                    item.content.toLowerCase().includes(normalizedQuery);
-                return titleMatch || contentMatch;
-            });
-        }
-    }
-
-    const searcher = new PDFSearch();
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-
-    searchInput.addEventListener('input', async (e) => {
-        const query = e.target.value;
-        if (query.length < 2) {
-            searchResults.innerHTML = '';
-            return;
-        }
-
-        const results = await searcher.search(query);
-        searchResults.innerHTML = results.map(result => `
-            <li class="result-item">
-                <a href="${result.path}" class="result-title">${result.title}</a>
-                ${result.content ? `
-                    <div class="result-snippet">
-                        ${getSnippet(result.content, query)}
-                    </div>
-                ` : ''}
-            </li>
-        `).join('');
-    });
-
-    function getSnippet(content, query) {
-        const index = content.toLowerCase().indexOf(query.toLowerCase());
-        if (index === -1) return '';
-        
-        const start = Math.max(0, index - 100);
-        const end = Math.min(content.length, index + 100);
-        return '...' + content.slice(start, end) + '...';
-    }
-    </script>
-</body>
-</html>
