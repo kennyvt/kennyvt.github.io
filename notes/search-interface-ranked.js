@@ -146,7 +146,7 @@ function initSearch() {
         
         searchResults.innerHTML = results.map(result => `
             <li class="result-item">
-                <a href="../${result.path}" class="result-title">${result.title}</a>
+                <a href= "../" * "${result.path}" class="result-title">${result.title}</a>
                 <div class="result-metadata">
                     Relevance: ${Math.min(100, Math.floor(result.totalScore / 10))}%
                     ${result.titleScore > 0 ? ' (title match)' : ''}
